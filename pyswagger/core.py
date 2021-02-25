@@ -15,6 +15,7 @@ import base64
 import six
 import weakref
 import logging
+import re
 
 
 logger = logging.getLogger(__name__)
@@ -142,7 +143,7 @@ class App(object):
     def url(self):
         """
         """
-        return self.__url
+        return re.sub(r'//$','/',self.__url)
 
     @property
     def prim_factory(self):
