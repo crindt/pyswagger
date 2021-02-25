@@ -143,7 +143,7 @@ class App(object):
     def url(self):
         """
         """
-        return re.sub(r'//$','/',self.__url)
+        return re.sub(r'^http:http:','http:',self.__url)
 
     @property
     def prim_factory(self):
@@ -347,6 +347,8 @@ class App(object):
         # update scope-separater
         self.__m.sep = self.__sep
         self.__op.sep = self.__sep
+        
+        print
 
         # cycle detection
         if len(cy.cycles['schema']) > 0 and strict:
