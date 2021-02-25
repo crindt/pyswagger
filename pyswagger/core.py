@@ -214,6 +214,7 @@ class App(object):
         s.scan(root=obj, route=[YamlFixer()], leaves=[Operation])
         # normalize $ref
         url, jp = utils.jr_split(jref)
+        url=utils.normalize_url(url)
         s.scan(root=obj, route=[NormalizeRef(url)])
         # cache this object
         if url not in self.__objs:
