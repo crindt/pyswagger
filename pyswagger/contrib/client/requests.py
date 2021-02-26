@@ -66,6 +66,7 @@ class Client(BaseClient):
             files=file_obj
         )
         rq = self.__s.prepare_request(rq)
+        print(rq)
         rs = self.__s.send(rq, stream=True, **self.__send_opt)
 
         resp.apply_with(
