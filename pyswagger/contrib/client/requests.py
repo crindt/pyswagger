@@ -70,7 +70,8 @@ class Client(BaseClient):
         print(rq.headers)
         print(rq.body)
         print(rq.url)
-        rq.url=utils.normalize_url(rq.url)
+        import re
+        rq.url=re.sub('https://api.calstartdata.org//','https://api.calstartdata.org/',rq.url)
         print(rq.url)
         rs = self.__s.send(rq, stream=True, **self.__send_opt)
 
