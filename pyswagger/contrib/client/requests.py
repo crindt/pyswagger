@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 from ...core import BaseClient
 from requests import Session, Request
+from pyswagger import utils
 import six
 
 
@@ -68,6 +69,8 @@ class Client(BaseClient):
         rq = self.__s.prepare_request(rq)
         print(rq.headers)
         print(rq.body)
+        print(rq.url)
+        rq.url=utils.normalize_url(rq.url)
         print(rq.url)
         rs = self.__s.send(rq, stream=True, **self.__send_opt)
 
